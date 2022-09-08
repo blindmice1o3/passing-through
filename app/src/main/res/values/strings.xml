@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Passing Through</string>
+    <string name="add_game_entity">add game entity</string>
+
+    <string name="hint_name">Name...</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Name not saved because it is empty.</string>
+</resources>
