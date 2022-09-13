@@ -21,7 +21,7 @@ public class GameEntityListAdapter extends ListAdapter<GameEntity, GameEntityVie
     @Override
     public void onBindViewHolder(GameEntityViewHolder holder, int position) {
         GameEntity current = getItem(position);
-        holder.bind(current.getName());
+        holder.bind(current.getName(), current.getX(), current.getY());
     }
 
     public static class GameEntityDiff extends DiffUtil.ItemCallback<GameEntity> {

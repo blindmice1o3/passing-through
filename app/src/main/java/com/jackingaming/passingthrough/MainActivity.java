@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_GAME_ENTITY_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            GameEntity gameEntity = new GameEntity(data.getStringExtra(NewGameEntityActivity.EXTRA_REPLY));
+            GameEntity gameEntity = new GameEntity(data.getStringExtra(NewGameEntityActivity.EXTRA_REPLY), 1f, 3f);
             gameEntityViewModel.insert(gameEntity);
         } else {
             Toast.makeText(

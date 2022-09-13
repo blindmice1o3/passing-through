@@ -14,8 +14,18 @@ public class GameEntity {
     @ColumnInfo(name = "name")
     private String name;
 
-    public GameEntity(@NonNull String name) {
+    @NonNull
+    @ColumnInfo(name = "x", defaultValue = "0")
+    private float x;
+
+    @NonNull
+    @ColumnInfo(name = "y", defaultValue = "0")
+    private float y;
+
+    public GameEntity(@NonNull String name, @NonNull float x, @NonNull float y) {
         this.name = name;
+        this.x = x;
+        this.y = y;
     }
 
     public int getId() {
@@ -28,5 +38,21 @@ public class GameEntity {
 
     public String getName() {
         return name;
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 }

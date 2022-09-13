@@ -3,6 +3,7 @@ package com.jackingaming.passingthrough.models.database;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.room.AutoMigration;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -14,7 +15,14 @@ import com.jackingaming.passingthrough.models.database.entities.GameEntity;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {GameEntity.class}, version = 1, exportSchema = false)
+@Database(
+        entities = {GameEntity.class},
+        version = 2,
+        exportSchema = true,
+        autoMigrations = {
+                @AutoMigration(from = 1, to = 2)
+        }
+)
 public abstract class GameEntityRoomDatabase extends RoomDatabase {
     public abstract GameEntityDao gameEntityDao();
 
@@ -36,9 +44,9 @@ public abstract class GameEntityRoomDatabase extends RoomDatabase {
                 GameEntityDao dao = INSTANCE.gameEntityDao();
                 dao.deleteAll();
 
-                GameEntity gameEntity = new GameEntity("Passing");
+                GameEntity gameEntity = new GameEntity("Passing", 0f, 0f);
                 dao.insert(gameEntity);
-                gameEntity = new GameEntity("Through");
+                gameEntity = new GameEntity("Through", 0f, 0f);
                 dao.insert(gameEntity);
             });
         }

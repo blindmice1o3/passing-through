@@ -10,15 +10,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.jackingaming.passingthrough.R;
 
 public class GameEntityViewHolder extends RecyclerView.ViewHolder {
-    private final TextView gameEntityItemView;
+    private final TextView tvName;
+    private final TextView tvX;
+    private final TextView tvY;
 
     private GameEntityViewHolder(View itemView) {
         super(itemView);
-        gameEntityItemView = itemView.findViewById(R.id.textView);
+        tvName = itemView.findViewById(R.id.tv_name);
+        tvX = itemView.findViewById(R.id.tv_x);
+        tvY = itemView.findViewById(R.id.tv_y);
     }
 
-    public void bind(String text) {
-        gameEntityItemView.setText(text);
+    public void bind(String name, float x, float y) {
+        tvName.setText(name);
+        tvX.setText(Float.toString(x));
+        tvY.setText(Float.toString(y));
     }
 
     static GameEntityViewHolder create(ViewGroup parent) {
